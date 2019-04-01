@@ -1,3 +1,5 @@
+package elevator
+
 object ElevatorDirection extends Enumeration(-1) {
   type ElevatorDirection = Value
   val DOWN, HOLD, UP = Value

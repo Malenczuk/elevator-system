@@ -1,5 +1,7 @@
-import ElevatorDirection._
-import ElevatorStatus._
+package elevator
+
+import elevator.ElevatorDirection.{DOWN, ElevatorDirection, HOLD, UP, compareFloors}
+import elevator.ElevatorStatus.{EMPTY, ElevatorStatus, OCCUPIED, PICKUP}
 
 import scala.collection.mutable.ListBuffer
 
