@@ -1,5 +1,7 @@
-import ElevatorDirection._
-import ElevatorStatus._
+package elevator
+
+import elevator.ElevatorDirection.{DOWN, ElevatorDirection, HOLD, UP, compareFloors}
+import elevator.ElevatorStatus.{EMPTY, ElevatorStatus, OCCUPIED, PICKUP}
 
 import scala.collection.mutable.ListBuffer
 
@@ -82,10 +84,8 @@ class Elevator(val id: Int, var floor: Int) {
   }
 
   private def occupiedDirection: ElevatorDirection = {
-    if (destinations.contains(floor)) {
-      destinations -= floor
-      HOLD
-    } else if (destinations.exists(f => compareFloor(f) == _direction)) {
+    destinations -= floor
+    if (destinations.exists(f => compareFloor(f) == _direction)) {
       _direction
     } else {
       _status = EMPTY

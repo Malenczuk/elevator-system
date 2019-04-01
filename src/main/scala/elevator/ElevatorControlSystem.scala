@@ -1,5 +1,7 @@
-import ElevatorDirection.ElevatorDirection
-import ElevatorStatus.ElevatorStatus
+package elevator
+
+import elevator.ElevatorDirection.ElevatorDirection
+import elevator.ElevatorStatus.ElevatorStatus
 
 import scala.collection.mutable.ListBuffer
 

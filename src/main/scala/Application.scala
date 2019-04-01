@@ -1,3 +1,5 @@
+import elevator.{ElevatorControlSystem, ElevatorDirection}
+
 import scala.io.StdIn
 
 
@@ -8,18 +10,18 @@ object Application extends App {
   val stepCmd = raw"""step|s""".r
   val destCmd = raw"""dest (\d+) (\d+)""".r
 
-  print("Number of Elevators: ")
+  println("Number of Elevators: ")
   val numberOfElevators = StdIn.readInt()
-  print("Start Floor: ")
+  println("Start Floor: ")
   val start = StdIn.readInt()
-  print("End Floor: ")
+  println("End Floor: ")
   val end = StdIn.readInt()
   val floors = Range(math.min(start, end), math.max(start, end))
 
   val ecs = new ElevatorControlSystem(numberOfElevators, floors)
 
   while (true) {
-    val line = StdIn.readLine()
+    val line = StdIn.readLine(">>> ")
     line match {
       case stepCmd() => ecs.step()
       case statusCmd() => println(ecs.status())
